@@ -86,3 +86,47 @@ Here are the tools used to obtain these metrics :
 #### [XCode](https://help.apple.com/instruments/mac/current/#/dev7b09c84f5)
 
 XCode has a suite of tools to monitor running IOS apps. A good way to get hardware usages. 
+
+
+## API
+
+To test the fronts, you can find an API in the ```api``` folder that mimics a JMAP server.
+The API returns random fake emails as follows :
+
+```json
+{
+  "id": "ma_Ait47m3oFHPS6jds6H0u",
+  "from": [{ "name": "John Doe", "email": "john.doe@example.com" }],
+  "subject": "RE: Secret mission",
+  "receivedAt": "2013-10-13T14:12:00Z",
+  "htmlBody": [
+    {
+      "partId": "1",
+      "type": "text/html"
+    }, {
+      "partId": "2",
+      "type": "text/plain"
+    }
+  ],
+  "bodyValues": {
+    "1": {
+      "value": "<h1>Hello World!</h1>"
+    },
+    "2": {
+      "value": "This is your secret mission"
+    }
+  }
+}
+```
+
+There are two endpoints :
+
+``GET /mails?limit=200``
+
+- Returns a list of 200 mails without ***htmlBody*** and ***bodyValues***.
+
+``GET /mails/random_id``
+
+- Returns an email with ***htmlBody*** and ***bodyValues*** so you can display it.
+
+An online server is available for tests : [https://iroco.herokuapp.com/](https://iroco.herokuapp.com/mails)
