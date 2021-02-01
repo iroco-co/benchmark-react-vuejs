@@ -1,0 +1,33 @@
+[
+  {
+    "id": "f123u457",
+    "from": [{ "name": "Joe Bloggs", "email": "joe@example.com" }],
+    "subject": "Dinner on Thursday?",
+    "receivedAt": "2013-10-13T14:12:00Z",
+    "htmlBody": [
+      {
+         "partId": "1",
+         "blobId": "B841623871",
+         "size": 283331,
+         "type": "text/html"
+      }, {
+         "partId": "2",
+         "blobId": "B319437193",
+         "size": 10343,
+         "type": "text/plain"
+      }
+    ],
+    "bodyValues": {
+      "1": {
+        "isEncodingProblem": false,
+        "isTruncated": true,
+        "value": "<h1>Hello World!</h1>"
+      },
+      "2": {
+        "isEncodingProblem": false,
+        "isTruncated": false,
+        "value": "Yes !"
+      }
+    }
+  }
+]
