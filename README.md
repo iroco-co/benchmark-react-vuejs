@@ -96,7 +96,7 @@ The API returns random fake emails as follows :
 ```json
 {
   "id": "ma_Ait47m3oFHPS6jds6H0u",
-  "from": [{ "name": "John Doe", "email": "john.doe@example.com" }],
+  "from": { "name": "John Doe", "email": "john.doe@example.com" },
   "subject": "RE: Secret mission",
   "receivedAt": "2013-10-13T14:12:00Z",
   "htmlBody": [
