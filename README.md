@@ -4,6 +4,28 @@ The goal is to determine which technologies are best suited for the Iroco projec
 In this repo you can find front and back end technologies with the same set of features relevant to a mail application. 
 In each case we provide a full set of tests and comparative results.
 
+## Features
+
+To compare technologies we developed the same set of features:
+
+1. A network fetch of a list of mails.
+2. The display of those mails in scrollable view.
+3. An html viewer to display mails.
+4. A text input to search for mails.
+
+You can find the mobile mockup [here](https://framer.com/share/Benchmark--7MGmW80Lo1Lu1AMoMN2Y/jZNcXWNxR).
+
+## Use case senario
+
+Here is the scenario we use for UI testing:
+
+1. Type "Hello World!" inside the search bar
+2. Scroll down the list of mails
+3. Click on one
+4. Scroll down the mail
+5. Return to the list of mails
+6. Erase the content in search bar
+
 ## Technologies
 
 ### Mobile
@@ -24,34 +46,33 @@ In each case we provide a full set of tests and comparative results.
 
 We are looking at the overall size of the bundled application to reduce the disk and / or network usage.
 
-### Hardware usage on runtime
+### Hardware usage
 
 We are deeply concerned about the energy consumption of our service.
 In an ecological approach we tend to reduce as much as possible the footprint of our code on the user device.
-We compare technologies and frameworks based 5 metrics :
+We compare these metrics for the same UI tests:
 
-1. GPU usage (in percentage)
-2. CPU usage (in percentage)
-3. Memory usage (in bytes)
-4. Disk usage (in bytes)
-5. Network usage (in bytes)
+1. High watermark for heap allocations
+2. High watermark for VM allocations
+3. Persistent heap allocations
+4. Persistent VM allocations
+5. Temporary heap allocations
+6. Total heap allocations
+7. Transient heap allocations
+8. Transient VM allocations
 
-We take the average usage based on multiple measurements for the same interaction on the same environment.
-The aim is to compare technologies not to give an indication of performance.
+*Average based on 10 measurements for the same test on the same environment.
 
 ### Performances
 
-We are here testing the efficiency of the framework based on 6 metrics :
+The performance is determined by the speed of execution based on these metrics:
 
-1. First contentful paint (FCP)
-2. Speed index (SI)
-3. Largest contentful paint (LCP)
-4. Time to interactive (TTI)
-5. Total blocking time (TBT)
-6. Cumulative layout shift (CLS)
-
-With all those indicators we obtain a score.
-The method of calculation is described [here](https://googlechrome.github.io/lighthouse/scorecalc/).
+1. Launch time
+2. Duration
+3. Runtime
+4. System time
+5. Time
+6. User time
 
 ### Backward compatibility
 

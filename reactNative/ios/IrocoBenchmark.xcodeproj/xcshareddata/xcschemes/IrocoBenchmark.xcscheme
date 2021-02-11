@@ -38,6 +38,16 @@
                ReferencedContainer = "container:IrocoBenchmark.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DFA6E50625D434AD00D5E204"
+               BuildableName = "IrocoBenchmarkUITests.xctest"
+               BlueprintName = "IrocoBenchmarkUITests"
+               ReferencedContainer = "container:IrocoBenchmark.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

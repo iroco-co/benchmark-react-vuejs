@@ -5,6 +5,8 @@ import {
   SafeAreaView,
   TouchableWithoutFeedback,
   ScrollView,
+  Platform,
+  TouchableOpacity,
 } from 'react-native';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { useMail } from '../api';
@@ -31,7 +33,11 @@ function Viewer(): React.ReactElement {
     <View style={style.container}>
       <SafeAreaView>
         <View style={style.header}>
-          <TouchableWithoutFeedback onPress={navigation.goBack}>
+          <TouchableWithoutFeedback
+            onPress={navigation.goBack}
+            testID={'back'}
+            accessibilityLabel={'back'}
+            accessible={Platform.OS !== 'ios'}>
             <View style={style.navigation}>
               <ChevronLeft />
               <View style={style.metas}>

@@ -5,6 +5,7 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import style from './style';
@@ -26,9 +27,12 @@ function List(): React.ReactElement {
           data={mails.mails}
           style={style.list}
           contentInset={{ bottom: 100 }}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('Viewer', { mail: item })}>
+              onPress={() => navigation.navigate('Viewer', { mail: item })}
+              testID={`mail-${index}`}
+              accessibilityLabel={`mail-${index}`}
+              accessible={Platform.OS !== 'ios'}>
               <Thumbnail mail={item} />
             </TouchableOpacity>
           )}
