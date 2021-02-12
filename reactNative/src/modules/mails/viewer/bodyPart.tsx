@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { WebView, WebViewMessageEvent } from 'react-native-webview';
 import { BodyValue, HtmlBodyPart, MimeType } from '../model';
 import style from './style';
@@ -25,25 +25,30 @@ const computeHeight = `
 `;
 
 function BodyPart({ htmlBody, bodyValue }: Props): React.ReactElement {
-  const [height, setHeight] = useState<number>(0);
+  const [height, setHeight] = useState<number>(300);
 
   const onMessage = useCallback((event: WebViewMessageEvent) => {
+    console.log(event.nativeEvent.data);
     setHeight(parseInt(event.nativeEvent.data, 10));
   }, []);
 
   switch (htmlBody.type) {
     case MimeType.TEXT_HTML:
       return (
-        <WebView
-          originWhitelist={['*']}
-          source={{
-            html: bodyValue.value,
-          }}
-          injectedJavaScript={computeHeight}
-          onMessage={onMessage}
-          scrollEnabled={false}
-          containerStyle={{ flex: 0, height }}
-        />
+        <View renderToHardwareTextureAndroid={true}>
+          <WebView
+            originWhitelist={['*']}
+            source={{
+              html: bodyValue.value,
+            }}
+            injectedJavaScript={computeHeight}
+            onMessage={onMessage}
+            scrollEnabled={false}
+            containerStyle={{ flex: 0, height }}
+            androidHardwareAccelerationDisabled={Platform.OS === 'android'}
+            javaScriptEnabledAndroid={true}
+          />
+        </View>
       );
     default:
       return <Text style={style.textBody}>{bodyValue.value}</Text>;

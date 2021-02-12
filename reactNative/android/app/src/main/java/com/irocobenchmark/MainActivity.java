@@ -1,4 +1,4 @@
-package com.irocobenchmark;
+package co.iroco.benchmark;
 
 import com.facebook.react.ReactActivity;
 
