@@ -1,55 +1,52 @@
 package co.iroco.benchmark
 
+import android.support.test.filters.LargeTest
+import android.widget.ScrollView
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.intent.Intents
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import co.iroco.benchmark.EspressoViewFinder.waitForDisplayed
+import org.hamcrest.Matchers.allOf
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.rule.ActivityTestRule
-
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
-import org.hamcrest.CoreMatchers.allOf
-import org.hamcrest.CoreMatchers.not
-
 @RunWith(AndroidJUnit4::class)
+@LargeTest
 class MainActivityTest  {
 
     @get:Rule
-    var activityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
+    var activityRule: ActivityScenarioRule<MainActivity> = ActivityScenarioRule(MainActivity::class.java)
+
+
+    @Before
+    fun setUp() {
+        Intents.init()
+    }
+
+    @After
+    fun tearDown() {
+        Intents.release()
+    }
 
     @Test
     fun performancesTest() {
-        try {
-            Thread.sleep(1500)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
+        waitForDisplayed(withContentDescription("search")) {
+                search -> onView(search).perform(typeText("Hello World!\n"))
         }
 
-        // Finds the Username element
-        onView(allOf(withContentDescription("test-Username"), isDisplayed()))
-                .check(matches(withText("")))
-                .perform(typeText("standard_user"))
+        Thread.sleep(2000)
 
+        waitForDisplayed(withContentDescription("mail-4")) {
+                mail -> onView(mail).perform(click())
+        }
 
-        // Finds the Password element
-        onView(allOf(withContentDescription("test-Password"), isDisplayed()))
-                .check(matches(withText("")))
-                .perform(typeText("secret_sauce"))
-        Espresso.closeSoftKeyboard()
-
-        // Finds the Login Button
-        onView(allOf(withContentDescription("test-LOGIN"), isDisplayed()))
-                .check(matches(not(isClickable())))
-                .perform(click())
-
-        // Finds the Products page
-        onView(allOf(withContentDescription("test-PRODUCTS"), isDisplayed()))
-
+        Thread.sleep(2000)
     }
 }

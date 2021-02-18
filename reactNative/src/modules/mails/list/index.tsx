@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   Platform,
+  TextInput,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import style from './style';
@@ -24,6 +25,9 @@ function List(): React.ReactElement {
       <SafeAreaView>
         <Search />
         <FlatList
+          testID="mails"
+          accessibilityLabel={'mails'}
+          accessible={Platform.OS !== 'ios'}
           data={mails.mails}
           style={style.list}
           contentInset={{ bottom: 100 }}
