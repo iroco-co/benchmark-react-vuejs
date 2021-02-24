@@ -11,7 +11,7 @@ function App() {
         <Header />
 
         <Switch>
-          <Route exact path="/" component={Mails} />
+          <Route exact path={['/', '/:mail']} component={Mails} />
         </Switch>
       </div>
     </div>

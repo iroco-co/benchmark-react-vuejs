@@ -82,6 +82,7 @@
       "objects": "only-multiline",
       "imports": "only-multiline",
       "exports": "only-multiline",
+      "enums": "only-multiline",
       "functions": "never"
     }]
   }

@@ -1,16 +1,19 @@
 import React from 'react';
-import { useMails } from '../api';
+import { NavLink } from 'react-router-dom';
 import Thumbnail from '../thumbnail';
+import Mail from '../model';
 
-function List(): React.ReactElement {
-  const mails = useMails();
+export interface Props {
+  mails: Mail[];
+}
 
+function List({ mails }: Props): React.ReactElement {
   return (
     <div className="mails-list">
-      {mails.mails.map((mail) => (
-        <div className="mail" key={mail.id}>
+      {mails.map((mail: Mail) => (
+        <NavLink to={`/${mail.id}`} className="mail" key={mail.id}>
           <Thumbnail mail={mail} />
-        </div>
+        </NavLink>
       ))}
     </div>
   );

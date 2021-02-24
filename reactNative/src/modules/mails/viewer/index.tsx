@@ -6,7 +6,6 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   Platform,
-  TouchableOpacity,
 } from 'react-native';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { useMail } from '../api';

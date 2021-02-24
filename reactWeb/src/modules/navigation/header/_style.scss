@@ -5,6 +5,7 @@ header {
   align-items: center;
   justify-content: center;
   background: white;
+  border-bottom: solid $light-grey 1px;
 
   >.search {
     @include container-small();
@@ -20,7 +21,7 @@ header {
 
       &:focus {
         background: white;
-        border: solid $medium-grey 1px;
+        border: solid $light-grey 1px;
         outline: none;
       }
 

@@ -58,6 +58,12 @@ export function useMail(id: string): MailState {
   useEffect(() => {
     (async () => {
       try {
+        setMail({
+          mail: null,
+          pending: true,
+          error: null,
+        });
+
         const { data } = await axios.get(`https://iroco.herokuapp.com/mails/${id}`);
 
         setMail({
@@ -73,7 +79,7 @@ export function useMail(id: string): MailState {
         }));
       }
     })();
-  }, []);
+  }, [id]);
 
   return mail;
 }
