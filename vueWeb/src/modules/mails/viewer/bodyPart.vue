@@ -1,6 +1,6 @@
 <template>
   <iframe v-if="htmlBody.type === 'text/html'" :srcDoc=bodyValue.value scrolling="no" />
-  <p v-else>{{ bodyValue.value }}</p>
+  <p class="textBody" v-else>{{ bodyValue.value }}</p>
 </template>
 
 <script>
@@ -9,9 +9,6 @@
     props: {
       htmlBody: { type: Object, required: true },
       bodyValue: { type: Object, required: true },
-    },
-    // mounted() {
-    //   console.log(this.htmlBody)
-    // }
+    }
   }
 </script>

@@ -1,68 +1,36 @@
 <template>
   <div class="mails-landing">
     <div class="list">
-      <List :mails="mails" />
+      <MailsList :mails="mails" v-on:mail-selected="selectedMailId = $event" />
     </div>
-    <div class="viewer" v-if="selectedMail">
-      <Viewer :selectedMail=selectedMail />
+    <div class="viewer" v-if="selectedMailId">
+      <Viewer :selectedMailId=selectedMailId />
     </div>
   </div>
 </template>
 
 <script>
-  import List from '../list';
   import Viewer from '../viewer';
   import { fetchMails } from "@/modules/mails/api.js";
+  import MailsList from "@/modules/mails/mails_list";
 
   export default {
     name: 'MailsLanding',
     components: {
-      List,
+      MailsList,
       Viewer
     },
     data() {
       return {
         mails: [],
-        selectedMail: null
+        selectedMailId: null
       }
     },
     async mounted() {
       this.mails = await fetchMails();
-
-      if (!this.mails.length) {
-        await this.$router.push('/');
-      } else if ('mail' in this.$route.params && this.$route.params.mail) {
-        const currentMail = this.mails.find((mail) => mail.id === this.$route.params.mail);
-
-        if (!currentMail) {
-          await this.$router.push(`/${this.mails[0].id}`);
-          this.selectedMail = this.mails[0];
-        } else {
-          this.selectedMail = currentMail;
-        }
-      } else {
-        await this.$router.push(`/${this.mails[0].id}`);
-        this.selectedMail = this.mails[0];
-      }
-    },
-    watch: {
-      async '$route' (to) {
-        console.log("THERE")
-        if (!this.mails.length) {
-          await this.$router.push('/');
-        } else if ('mail' in to.params && to.params.mail) {
-          const currentMail = this.mails.find((mail) => mail.id === to.params.mail);
-
-          if (!currentMail) {
-            await this.$router.push(`/${this.mails[0].id}`);
-            this.selectedMail = this.mails[0];
-          } else {
-            this.selectedMail = currentMail;
-          }
-        } else {
-          await this.$router.push(`/${this.mails[0].id}`);
-          this.selectedMail = this.mails[0];
-        }
+      if (this.mails.length) {
+        this.selectedMailId = this.mails[0].id
+        await this.$router.push(`/${this.selectedMailId}`)
       }
     }
   }

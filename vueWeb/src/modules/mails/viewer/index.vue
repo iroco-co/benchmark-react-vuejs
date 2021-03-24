@@ -1,16 +1,16 @@
 <template>
-  <div class="mails-viewer">
+  <div class="mails-viewer" v-if="mail !== null">
     <div class="header">
       <div class="infos">
-        <p class="name">{{ selectedMail.from.name }}</p>
-        <p class="mail">{{ selectedMail.from.email }}</p>
+        <p class="name">{{ mail.from.name }}</p>
+        <p class="mail">{{ mail.from.email }}</p>
       </div>
       <div class="metas">
         <p class="receivedAt">{{ receivedAt }}</p>
       </div>
     </div>
     <div class="body">
-      <h1>{{ selectedMail.subject }}</h1>
+      <h1>{{ mail.subject }}</h1>
 
       <template v-if="mail.htmlBody">
         <div v-for="htmlBody in mail.htmlBody" :key=htmlBody.partId>
@@ -32,20 +32,30 @@
       BodyPart
     },
     props: {
-      selectedMail: { type: Object, required: true }
+      selectedMailId: { type: String, required: true }
     },
     data() {
       return {
-        mail: this.selectedMail
+        mail: null
       }
     },
     computed: {
       receivedAt: function () {
-        return formatRelativeTime(this.selectedMail.receivedAt);
+        return formatRelativeTime(this.mail.receivedAt)
       }
     },
     async mounted() {
-      this.mail = await fetchMail(this.selectedMail.id);
+      await this.loadMail()
+    },
+    methods: {
+      async loadMail () {
+        this.mail = await fetchMail(this.selectedMailId)
+      }
+    },
+    watch: {
+      selectedMailId: function () {
+        this.loadMail()
+      }
     }
   }
 </script>
