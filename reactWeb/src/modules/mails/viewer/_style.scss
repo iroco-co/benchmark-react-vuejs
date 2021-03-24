@@ -46,6 +46,10 @@
     height: calc(100% - 100px);
     overflow: auto;
 
+    p.textBody {
+      white-space: pre-wrap;
+    }
+
     >h1 {
       background: $light-grey;
       color: $text;

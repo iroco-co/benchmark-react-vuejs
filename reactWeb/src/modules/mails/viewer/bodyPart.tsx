@@ -11,7 +11,7 @@ function BodyPart({ htmlBody, bodyValue }: Props): React.ReactElement {
     case MimeType.TEXT_HTML:
       return <iframe srcDoc={bodyValue.value} scrolling="no" />;
     default:
-      return <p>{bodyValue.value}</p>;
+      return <p className='textBody'>{bodyValue.value}</p>;
   }
 }
 
