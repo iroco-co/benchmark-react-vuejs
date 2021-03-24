@@ -4,9 +4,13 @@ from mails import mails
 import os
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='app')
 CORS(app)
 app.register_blueprint(mails)
+
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
 
 if __name__ == "__main__":
     from waitress import serve

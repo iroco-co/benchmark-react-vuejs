@@ -10,6 +10,3 @@ waitress = "*"
 Jinja2 = "*"
 Flask = "*"
 flask-cors = "*"
-
-[requires]
-python_version = "2.7"
