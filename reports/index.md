@@ -23,7 +23,7 @@ Par ailleurs, le délai de chargement des pages est assez long : le backend est 
 
 ![diagramme](02-run-2021-03-24/diagramme.png)
 
-Le tir est correct. Nous voyons bien les pics de chaque chargement de la page d'accueil et les temps plus réduits liés aux 10 affichages de mail.
+Le tir est correct. Nous voyons bien les pics de chaque chargement de la page d'accueil et les temps plus réduits liés aux 10 affichages de mail. Ces résultats posent une question sur les artéfacts présents dans les données de react : il y a des pics similaires à côté du chargement de la page d'accueil. C'est pas le cas pour vuejs qui a un profil plus "propre".
 
 |   |react | vuejs
 | ---| --- | ------
