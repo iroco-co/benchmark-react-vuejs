@@ -19,6 +19,8 @@ La différence est trop importante. En observant de plus près l'application vue
 
 Par ailleurs, le délai de chargement des pages est assez long : le backend est hébergé chez heroku. Pour diminuer les aléas et les délais de chargement du réseau, nous décidons de faire tourner l'application en local.
 
+Enfin, nous avons utilisé des applications web en mode "développement" c'est à dire avec des fonctionnalités supplémentaires pour le debug, et sans minification. Pour le prochain tir, nous allons "transpiler" les applications web avec webpack, et utiliser le code généré servi par le backend.
+
 ## 2e tir
 
 ![diagramme](02-run-2021-03-24/diagramme.png)
