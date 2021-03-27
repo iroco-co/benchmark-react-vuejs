@@ -13,18 +13,8 @@ class Mail:
         self._body = body
 
     def snapshot(self):
-        return {
-            'id': self._mailId,
-            'from': self._from,
-            'subject': self._subject,
-            'receivedAt': self._receivedAt.isoformat(),
-        }
+        return {'id': self._mailId, 'from': self._from, 'subject': self._subject, 'receivedAt': self._receivedAt.isoformat(),}
 
     def to_dict(self):
-        return {
-            'id': self._mailId,
-            'from': self._from,
-            'subject': self._subject,
-            'receivedAt': self._receivedAt.isoformat(),
-            'body': self._body
-        }
+        return dict({'id': self._mailId, 'from': self._from, 'subject': self._subject,
+                     'receivedAt': self._receivedAt.isoformat(), **self._body})
