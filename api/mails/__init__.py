@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, make_response, Response
 from mails.store import fetch_list, fetch_one
 
 mails = Blueprint('mails', __name__, template_folder='templates')
@@ -11,4 +11,5 @@ def get_mails():
 
 @mails.route('/mails/<string:mailId>')
 def get_mail(mailId):
-    return jsonify(fetch_one(mailId))
+    mail = fetch_one(mailId)
+    return jsonify(mail.to_dict()) if mail is not None else Response(status=404)
