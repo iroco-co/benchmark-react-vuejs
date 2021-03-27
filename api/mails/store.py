@@ -1,7 +1,6 @@
 import json
 import os
 import random
-from operator import attrgetter
 
 from mails.model import Mail
 from random import randrange
