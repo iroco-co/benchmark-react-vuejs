@@ -12,21 +12,9 @@ function Landing(): React.ReactElement {
   const [selectedMail, setSelectedMail] = useState<Mail | undefined>();
 
   useEffect(() => {
-    if (pending) {
-      // Nothing
-    } else if (!mails.length) {
-      history.push('/');
-    } else if ('mail' in params && params.mail) {
-      const currentMail = mails.find((mail: Mail) => mail.id === params.mail);
-      if (!currentMail) {
-        history.push(`/${mails[0].id}`);
-        setSelectedMail(mails[0]);
-      } else {
-        setSelectedMail(currentMail);
-      }
-    } else {
+    if (!pending && mails.length && selectedMail === null) {
+      setSelectedMail(mails[0])
       history.push(`/${mails[0].id}`);
-      setSelectedMail(mails[0]);
     }
   }, [pending, params.mail, mails]);
 
