@@ -18,7 +18,7 @@ export function useMails(limit: number = 50): MailsState {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8081/mails`, {
+        const { data } = await axios.get(`/mails`, {
           params: {
             limit,
           },
@@ -64,7 +64,7 @@ export function useMail(id: string): MailState {
           error: null,
         });
 
-        const { data } = await axios.get(`http://localhost:8081/mails/${id}`);
+        const { data } = await axios.get(`/mails/${id}`);
 
         setMail({
           mail: data,
