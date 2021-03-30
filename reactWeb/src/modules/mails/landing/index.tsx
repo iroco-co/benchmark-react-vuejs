@@ -9,14 +9,14 @@ function Landing(): React.ReactElement {
   const { pending, mails } = useMails();
   const history = useHistory();
   const params = useParams<{ mail?: string }>();
-  const [selectedMail, setSelectedMail] = useState<Mail | undefined>();
+  const [selectedMail, setSelectedMail] = useState<Mail | null>(null);
 
   useEffect(() => {
     if (!pending && mails.length && selectedMail === null) {
-      setSelectedMail(mails[0])
+      setSelectedMail(mails[0]);
       history.push(`/${mails[0].id}`);
     }
-  }, [pending, params.mail, mails]);
+  }, [pending, params.mail, mails, selectedMail]);
 
   return (
     <div className="mails-landing">
