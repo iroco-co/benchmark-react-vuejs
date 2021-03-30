@@ -21,7 +21,7 @@ function Landing(): React.ReactElement {
   return (
     <div className="mails-landing">
       <div className="list">
-        <List mails={mails} />
+        <List mails={mails} setSelectedMail={setSelectedMail} />
       </div>
       {selectedMail ? (
         <div className="viewer">
