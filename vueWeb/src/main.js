@@ -23,27 +23,3 @@ const router = new VueRouter({
 })
 
 new Vue({ router, render: (h) => h(App) }).$mount("#app")
-
-function sendToAnalytics(metric) {
-  const body = JSON.stringify({[metric.name]: metric.value});
-  fetch('/analytics', {body, method: 'POST',  headers: {'Content-Type': 'application/json'}, keepalive: true});
-}
-
-router.beforeEach(async () => {
-  try {
-    const {
-      getCLS,
-      getFCP,
-      getFID,
-      getLCP,
-      getTTFB
-    } = await import("web-vitals")
-    getCLS(sendToAnalytics);
-    getFCP(sendToAnalytics);
-    getFID(sendToAnalytics);
-    getLCP(sendToAnalytics);
-    getTTFB(sendToAnalytics);
-  } catch (err) {
-    console.error("[vue-web-vitals]", err);
-  }
-})
