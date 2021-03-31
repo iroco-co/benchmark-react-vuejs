@@ -25,7 +25,7 @@
   import { formatRelativeTime } from "@/helpers/time";
   import { fetchMail } from "@/modules/mails/api";
   import BodyPart from "./bodyPart";
-
+  import {getCLS, getFCP, getFID, getLCP, getTTFB} from "web-vitals"
   export default {
     name: 'MailsViewer',
     components: {
@@ -47,9 +47,23 @@
     async mounted() {
       await this.loadMail()
     },
+    async updated() {
+      this.$nextTick(function () {
+        // Code that will run only after the entire view has been updated
+        getCLS(this.sendToAnalytics)
+        getFCP(this.sendToAnalytics)
+        getFID(this.sendToAnalytics)
+        getLCP(this.sendToAnalytics)
+        getTTFB(this.sendToAnalytics)
+      })
+    },
     methods: {
       async loadMail () {
         this.mail = await fetchMail(this.selectedMailId)
+      },
+      sendToAnalytics (metric) {
+        const body = JSON.stringify({[metric.name]: metric.value})
+        fetch('/analytics', {body, method: 'POST', headers: {'Content-Type': 'application/json'}, keepalive: true})
       }
     },
     watch: {
