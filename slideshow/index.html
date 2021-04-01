@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Benchmark React/Vuejs</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -21,19 +21,71 @@
 
 class: center, middle
 
-# Title
+# Benchmark React/Vuejs
 
 ---
 
 # Agenda
 
-1. Introduction
-2. Deep-dive
-3. ...
+1. Objectif
+2. Architecture
+2. Jmeter
+3. Selenium
+4. Web Vitals
+5. Demo
+6. Et ensuite ?
 
 ---
 
-# Introduction
+# Objectif
+
+* mesurer les écarts de performance d'un client web
+* ajouter un outil à notre boite à outils
+* faire un choix entre 2 frameworks JS (vuejs et react)
+
+---
+class: center, middle
+# Architecture
+
+<img src="images/jmeter-selenium.png" height="400px"/>
+---
+<img src="https://jmeter.apache.org/images/logo.svg"/>
+
+* injecteur écrit en java (déployable sur plusieurs noeuds)
+* UX un peu "brut"
+* dernière version plus design mais des concepts à découvrir
+* plein de plugins dont [WebDriver](https://jmeter-plugins.org/wiki/WebDriverTutorial/)
+
+cf https://jmeter.apache.org/
+---
+<img src="https://www.selenium.dev/images/selenium_logo_large.png" width="300px"/>
+
+* suite d'outils de test d'app Web
+* usage principal : tests d'acceptance (boite noire à partir du navigateur)
+* WebDriver permet de piloter un navigateur (FF, Chrome, ...)
+
+cf https://www.selenium.dev/
+---
+# Web Vitals
+
+*mesure ce qui se passe dans le navigateur (rendu, délais avant interractions...)*
+
+<img src="https://webdev.imgix.net/vitals/lcp_ux.svg" width="200px"/>
+<img src="https://webdev.imgix.net/vitals/fid_ux.svg" width="200px"/>
+<img src="https://webdev.imgix.net/vitals/cls_ux.svg" width="200px"/>
+
+see https://web.dev/vitals/
+
+---
+class: center, middle
+# Demo
+
+---
+# Et ensuite ?
+
+* faire un/des article(s) expliquant notre démarche/avoir des retours
+* tester la possibilité de charger l'app sur un "vieux" navigateur/mobile
+* éventuellement "industrialiser" l'utilisation
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
