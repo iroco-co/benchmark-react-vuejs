@@ -4,6 +4,8 @@ The goal is to determine which technologies are best suited for the Iroco projec
 In this repo you can find front and back end technologies with the same set of features relevant to a mail application. 
 In each case we provide a full set of tests and comparative results.
 
+![architecture](slideshow/images/jmeter-selenium.png)
+
 ## Features
 
 To compare technologies we developed the same set of features:
