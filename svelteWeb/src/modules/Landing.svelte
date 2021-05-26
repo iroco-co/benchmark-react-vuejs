@@ -20,7 +20,7 @@
 
 <div class="mails-landing">
     <div class="list">
-      <MailList mails={mails} />
+      <MailList mails={mails} bind:selectedMailId/>
     </div>
     {#if selectedMailId !== null}
         <div class="viewer">

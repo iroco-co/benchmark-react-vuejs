@@ -3,11 +3,12 @@
   import Mail from "./mails/model";
   import { Link } from "svelte-routing";
   export let mails: Array<Mail>
+  export let selectedMailId = null
 </script>
 
 <div class="mails-list">
   {#each mails as mail}
-      <Link to="/{mail.id}" class="mail">
+      <Link to="/{mail.id}" class="mail" on:click={() => (selectedMailId = mail.id)}>
         <Thumbnail mail={mail} />
       </Link>
   {/each}
