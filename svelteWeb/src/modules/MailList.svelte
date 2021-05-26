@@ -7,7 +7,7 @@
 
 <div class="mails-list">
   {#each mails as mail}
-      <Link to="/{mail.id}">
+      <Link to="/{mail.id}" class="mail">
         <Thumbnail mail={mail} />
       </Link>
   {/each}
