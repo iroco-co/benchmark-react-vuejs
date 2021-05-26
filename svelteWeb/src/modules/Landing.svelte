@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte'
     import { navigate } from 'svelte-routing'
 
@@ -11,7 +11,7 @@
 
     onMount(async () => {
         mails = await fetchMails()
-        if (this.mails.length) {
+        if (mails.length) {
             selectedMailId = mails[0].id
         }
         navigate(`/${selectedMailId}`)

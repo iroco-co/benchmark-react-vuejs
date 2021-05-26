@@ -1,14 +1,15 @@
 <script lang="ts">
   import Thumbnail from "./Thumbnail.svelte";
   import Mail from "./mails/model";
+  import { Link } from "svelte-routing";
   export let mails: Array<Mail>
 </script>
 
 <div class="mails-list">
   {#each mails as mail}
-    <router-link v-for="mail in mails" :key="mail.id" :to=mail.id class="mail" v-on:click.native="$emit('mail-selected', mail.id)">
-      <Thumbnail mail={mail} />
-    </router-link>
+      <Link to="/{mail.id}">
+        <Thumbnail mail={mail} />
+      </Link>
   {/each}
 </div>
 

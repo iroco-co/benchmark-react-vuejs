@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { formatRelativeTime } from "@/helpers/time";
-  import { fetchMail } from "@/modules/mails/api";
+  import { formatRelativeTime } from "../helpers/time";
+  import { fetchMail } from "./mails/api";
   import BodyPart from "./BodyPart.svelte";
   import {getCLS, getFCP, getFID, getLCP, getTTFB} from "web-vitals"
   import {afterUpdate, onMount} from "svelte";
@@ -19,21 +19,23 @@
     fetch('/analytics', {body, method: 'POST', headers: {'Content-Type': 'application/json'}, keepalive: true})
   }
 
-  $: if (selectedMailId !== mailId) {
-    mailId = selectedMailId
+  async function updateMailId(id) {
+    mailId = id
     mail = await fetchMail(mailId)
   }
+
+  $: updateMailId(selectedMailId)
 
   onMount(async () => {
     mail = await fetchMail(selectedMailId)
   })
 
   afterUpdate(() => {
-    getCLS(this.sendToAnalytics)
-    getFCP(this.sendToAnalytics)
-    getFID(this.sendToAnalytics)
-    getLCP(this.sendToAnalytics)
-    getTTFB(this.sendToAnalytics)
+    getCLS(sendToAnalytics)
+    getFCP(sendToAnalytics)
+    getFID(sendToAnalytics)
+    getLCP(sendToAnalytics)
+    getTTFB(sendToAnalytics)
   })
 </script>
 
