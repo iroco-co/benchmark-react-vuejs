@@ -6,7 +6,7 @@
 
 <Router url="{url}">
   <div>
-    <Route path="/"><Landing /></Route>
     <Route path="/:mail" component="{Landing}" />
+    <Route path="/"><Landing /></Route>
   </div>
 </Router>

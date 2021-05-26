@@ -1,16 +1,20 @@
 <script lang="ts">
   import Thumbnail from "./Thumbnail.svelte";
   import Mail from "./mails/model";
-  import { Link } from "svelte-routing";
+  import {navigate} from "svelte-routing";
   export let mails: Array<Mail>
   export let selectedMailId = null
+  function clickOnMail(id) {
+      selectedMailId = id
+      navigate(`/${selectedMailId}`)
+  }
 </script>
 
 <div class="mails-list">
   {#each mails as mail}
-      <Link to="/{mail.id}" class="mail" on:click={() => (selectedMailId = mail.id)}>
+      <div class="mail" on:click={() => clickOnMail(mail.id)}>
         <Thumbnail mail={mail} />
-      </Link>
+      </div>
   {/each}
 </div>
 
