@@ -107,25 +107,6 @@
       width: 100%;
       height: calc(100% - 100px);
       overflow: auto;
-
-      p.textBody {
-        white-space: pre-wrap;
-      }
-
-      >h1 {
-        background: $light-grey;
-        color: $text;
-        margin: 0;
-        padding-left: 20px;
-        padding-bottom: 20px;
-      }
-
-      iframe {
-        width: 100%;
-        height: 2300px;
-        border: none;
-        outline: none;
-      }
     }
   }
 </style>
