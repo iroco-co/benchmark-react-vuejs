@@ -8,7 +8,7 @@
   }
 </script>
 
-<div class="mail-thumbnail">
+<div class="mails-thumbnail">
   <div class="infos">
     <p class="name">{ mail.from.name }</p>
     <p class="subject">{ mail.subject }</p>
@@ -19,7 +19,7 @@
 </div>
 
 <style lang="scss">
-  .mail-thumbnail {
+  .mails-thumbnail {
     padding: 10px 20px;
     display: flex;
     align-items: flex-start;
@@ -57,16 +57,6 @@
         white-space: nowrap;
         overflow: hidden;
         color: $medium-grey;
-      }
-    }
-
-    .router-link-active & {
-      background: $text;
-
-      >.infos {
-        >p {
-          color: white;
-        }
       }
     }
   }

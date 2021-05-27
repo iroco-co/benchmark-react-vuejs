@@ -13,8 +13,8 @@
         mails = await fetchMails()
         if (mails.length) {
             selectedMailId = mails[0].id
+            navigate(`/${selectedMailId}`)
         }
-        navigate(`/${selectedMailId}`)
     })
 </script>
 

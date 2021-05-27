@@ -12,7 +12,7 @@
 
 <div class="mails-list">
   {#each mails as mail}
-      <div class="mail" on:click={() => clickOnMail(mail.id)}>
+      <div class="mail" class:router-link-active={ true } on:click={() => clickOnMail(mail.id)}>
         <Thumbnail mail={mail} />
       </div>
   {/each}
@@ -39,6 +39,16 @@
 
       &:first-child {
         border-top: none;
+      }
+    }
+    
+    .router-link-active & {
+      background: $text;
+
+      >.infos {
+        >p {
+          color: white;
+        }
       }
     }
   }
