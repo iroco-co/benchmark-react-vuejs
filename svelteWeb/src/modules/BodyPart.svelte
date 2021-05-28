@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {BodyValue, HtmlBodyPart} from "./mails/model";
+  import type {BodyValue, HtmlBodyPart} from "./mails/model";
 
   export let htmlBody: HtmlBodyPart
   export let bodyValue: BodyValue

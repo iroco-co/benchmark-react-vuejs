@@ -5,6 +5,7 @@
     import Viewer from './MailViewer.svelte'
     import { fetchMails } from "./mails/api.js"
     import MailList from "./MailList.svelte"
+    import Header from "./Header.svelte"
 
     let mails = []
     let selectedMailId = null
@@ -18,10 +19,13 @@
     })
 </script>
 
+<Header/>
+
 <div class="mails-landing">
     <div class="list">
       <MailList mails={mails} bind:selectedMailId/>
     </div>
+
     {#if selectedMailId !== null}
         <div class="viewer">
           <Viewer selectedMailId={selectedMailId} />

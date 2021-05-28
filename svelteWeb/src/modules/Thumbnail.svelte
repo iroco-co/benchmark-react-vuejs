@@ -1,6 +1,6 @@
 <script lang="ts">
   import { formatRelativeTime } from "../helpers/time"
-  import Mail from "./mails/model";
+  import type Mail from "./mails/model";
   export let mail: Mail
 
   function receivedAt(): String {
