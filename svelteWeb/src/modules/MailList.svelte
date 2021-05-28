@@ -1,20 +1,18 @@
 <script lang="ts">
   import Thumbnail from "./Thumbnail.svelte";
-  import Mail from "./mails/model";
-  import {navigate} from "svelte-routing";
-  export let mails: Array<Mail>
-  export let selectedMailId = null
-  function clickOnMail(id) {
-      selectedMailId = id
-      navigate(`/${selectedMailId}`)
+  import type Mail from "./mails/model";
+  export let mails: Array<Mail>;
+  export let selectedMailId = null; 
+
+  function clickEvent(e: CustomEvent) {
+   selectedMailId = e.detail
   }
+
 </script>
 
 <div class="mails-list">
   {#each mails as mail}
-      <div class:link-active="{ mail.id === selectedMailId }" class="mail"  on:click={() => clickOnMail(mail.id)}>
-        <Thumbnail mail={mail} />
-      </div>
+    <Thumbnail mail={mail} bind:currentId={selectedMailId} on:clickOnMail={clickEvent} />
   {/each}
 </div>
 
@@ -24,34 +22,9 @@
     height: 100%;
     overflow: auto;
     background: white;
-
-    >.mail {
-      display: block;
-      background: none;
-      width: 100%;
-      text-align: left;
-      margin: 0;
-      padding: 0;
-      border: none;
-      outline: none;
-      border-top: solid $light-grey 1px;
-      cursor: pointer;
-
-      &:first-child {
-        border-top: none;
-      }
-
-      .link-active & {
-        background: $text;
-
-        >.infos {
-          >p {
-            color: white;
-          }
-        }
-      }
-    }
-
-
   }
 </style>
+
+ 
+
+
