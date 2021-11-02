@@ -4,119 +4,26 @@
     <title>Benchmark React/Vuejs</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      .remark-code, .remark-inline-code { font-family: 'monospace';color: #f2ebe3; background-color: #18151E;}
+      .remark-slide-content {background-color: #211d28;}
+      .remark-container {background-color: #18151E;}
+      .remark-slide-scaler {box-shadow: none;}
 
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      body { font-family: "Arial", sans-serif; color: #f2ebe3; background: #211d28;}
+      h1, h2, h3 {font-weight: normal;}
+      a {color: #00B9FF;}
+      svg[alt=selenium-logo] {background: #00D692;width: 200px;}
+      img[alt=iroco-logo] {height: 50px;}
+      .header { position: absolute;top: 1em;right: 50%;}
+      .spacer {padding: 1em;}
     </style>
   </head>
   <body>
-    <textarea id="source">
+    <textarea id="source"></textarea>
 
-class: center, middle
-
-# Benchmark React/Vuejs
-
----
-
-# Agenda
-
-1. Objectif
-2. Architecture
-2. Jmeter
-3. Selenium
-4. Web Vitals
-5. Demo
-6. Resultats
-7. Et ensuite ?
-
----
-
-# Objectif
-
-* mesurer les écarts de performance d'un client web
-* ajouter un outil à notre boite à outils
-* faire un choix entre 2 frameworks JS (vuejs et react)
-
----
-# Architecture
-
-<img src="images/jmeter-selenium.png" height="400px"/>
----
-<img src="https://jmeter.apache.org/images/logo.svg"/>
-
-* injecteur écrit en java (déployable sur plusieurs noeuds)
-* UX un peu "brut"
-* dernière version plus design mais des concepts à découvrir
-* plein de plugins dont [WebDriver](https://jmeter-plugins.org/wiki/WebDriverTutorial/)
-
-cf https://jmeter.apache.org/
----
-<img src="https://www.selenium.dev/images/selenium_logo_large.png" width="300px"/>
-
-* suite d'outils de test d'app Web
-* usage principal : tests d'acceptance (boite noire à partir du navigateur)
-* WebDriver permet de piloter un navigateur (FF, Chrome, ...)
-
-cf https://www.selenium.dev/
----
-# Web Vitals
-
-*mesure ce qui se passe dans le navigateur (rendu, délais avant interractions...)*
-
-<img src="https://webdev.imgix.net/vitals/lcp_ux.svg" width="200px"/>
-<img src="https://webdev.imgix.net/vitals/fid_ux.svg" width="200px"/>
-<img src="https://webdev.imgix.net/vitals/cls_ux.svg" width="200px"/>
-
-see https://web.dev/vitals/
-
----
-class: center, middle
-# Demo
-
----
-# Résultats (1)
-
-<img src="../reports/03-run-2021-03-30/bench-03-graph.png" width="500px" />
-
----
-# Résultats (2)
-
-<img src="../reports/05-run-2021-03-30/analytics-react.png" width="300px" />
-
-<img src="../reports/05-run-2021-03-30/analytics-vuejs.png" width="300px" />
-
-
----
-# Et ensuite ?
-
-* faire un/des article(s) expliquant notre démarche/avoir des retours
-* continuer sur les tests appli natives
-* autres critères de comparaison:
-  * compatibilité avec "vieux" navigateur/mobile
-  * taille livrables
-  * nombre lignes de code
-* liens avec consommation/énergie ?
-* "industrialiser" l'utilisation
----
-# Liens
-
-* https://jmeter.apache.org/
-* https://www.selenium.dev/
-* https://web.dev/vitals/
-* benchmark frameworks js : https://www.stefankrause.net/js-frameworks-benchmark8/table.html
-
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({sourceUrl: 'content.md'});
     </script>
   </body>
 </html>
