@@ -62,6 +62,9 @@ count: false
 --
 count: false
 * quelles différences entre la programmation asynchrone et synchrone ?
+--
+count: false
+* est-ce que les promesses de performances de [io_uring](https://unixism.net/2020/04/io-uring-by-example-part-1-introduction/) vont m'être utiles ? 
 * etc.
 ---
 class: center, middle
@@ -164,6 +167,20 @@ class: middle
   * ajouter un outil à notre boite à outils
   * faire un choix de langage
 ---
+class: center, middle
+.header[![iroco-logo](images/iroco.svg)]
+
+.spacer[]
+
+<img src="images/tableau_langages.png" width="600px"/>
+---
+class: middle
+.header[![iroco-logo](images/iroco.svg)]
+
+# Deux problématiques de performances
+* CPU bound : puissance de calcul
+* I/O bound : gestion des entrées sorties
+---
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
 
@@ -197,10 +214,12 @@ class: middle
 .header[![iroco-logo](images/iroco.svg)]
 # Ce que nous avons appris
 
-* tester le plus petit élément significatif
-* la plupart du temps on est surpris
-* coûte cher, ROI difficile à mesurer
-* source d'apprentissage
+* tester le plus petit élément significatif pour gagner du temps
+* prédire, interpréter, itérer pour apprendre ([PDCA](https://en.wikipedia.org/wiki/PDCA))
+* documenter pour communiquer et progresser ensemble
+* reproduire les résultats pour consolider
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Always good to see others hitting the same numbers, haters gonna hate.<br>I think we&#39;re where we want to be in terms of peak, next round of work will be (again) diminishing the impact of things like blk-cgroup, and other block/kernel options that have an adverse performance impact. <a href="https://t.co/IAQtBbTQgU">https://t.co/IAQtBbTQgU</a></p>&mdash; Jens Axboe (@axboe) <a href="https://twitter.com/axboe/status/1450503625940344840?ref_src=twsrc%5Etfw">October 19, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 ---
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
@@ -219,7 +238,7 @@ class: middle
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
 
-# Liens
+# Liens et références
 
 * présentation réalisée avec [remark](https://remarkjs.com)
 * données Boavizta/ADEME : [Environmental Footprint Data](https://github.com/Boavizta/environmental-footprint-data)
@@ -228,3 +247,4 @@ class: middle
 * https://web.dev/vitals/
 * benchmark frameworks js : https://www.stefankrause.net/js-frameworks-benchmark8/table.html
 * https://blog.iroco.co/
+* étude sur les langages [Energy efficiency across programming languages: how do energy, time, and memory relate?](https://dl.acm.org/doi/10.1145/3136014.3136031)
