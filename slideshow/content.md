@@ -136,7 +136,7 @@ class: middle, center
 # Demo
 
 ---
-class: middle
+class: center, middle
 .header[![iroco-logo](images/iroco.svg)]
 
 # Résultats (1)
@@ -144,7 +144,7 @@ class: middle
 <img src="../reports/03-run-2021-03-30/bench-03-graph.png" width="500px" />
 
 ---
-class: middle
+class: center, middle
 .header[![iroco-logo](images/iroco.svg)]
 
 # Résultats (2)
@@ -153,12 +153,26 @@ class: middle
 
 <img src="../reports/05-run-2021-03-30/analytics-vuejs.png" width="300px" />
 
+---
+class: center, middle
+.header[![iroco-logo](images/iroco.svg)]
+
+# Résultats (3)
+
+<img src="images/tableau_resultats.png" width="500px"/>
 
 ---
 class: center, middle
 .header[![iroco-logo](images/iroco.svg)]
 
 # Benchmark Serveur
+---
+class: center, middle
+.header[![iroco-logo](images/iroco.svg)]
+
+.spacer[]
+
+<img src="images/tableau_langages.png" width="600px"/>
 ---
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
@@ -168,13 +182,7 @@ class: middle
 * y a-t-il des différences entre Rust et Python en asynchrone ?
   * ajouter un outil à notre boite à outils
   * faire un choix de langage
----
-class: center, middle
-.header[![iroco-logo](images/iroco.svg)]
 
-.spacer[]
-
-<img src="images/tableau_langages.png" width="600px"/>
 ---
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
@@ -191,6 +199,8 @@ class: middle
 ```shell
 $ ab -n 10000 -c 8 localhost:8000/contacts/1
 ```
+
+<img src="images/bench_back.drawio.svg" />
 ---
 class: middle, center
 .header[![iroco-logo](images/iroco.svg)]
