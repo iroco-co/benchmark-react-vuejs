@@ -5,6 +5,8 @@ class: center, middle
 une boussole pour l'architecte ?
 
 <img height="200" src="images/aaron-burden-NXt5PrOb_7U-unsplash.jpg"/>
+
+Bruno Thomas - Iroco.co - @bam_thomas
 ---
 class: center, middle
 .header[![iroco-logo](images/iroco.svg)]
