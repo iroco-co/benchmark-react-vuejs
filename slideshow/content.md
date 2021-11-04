@@ -177,19 +177,19 @@ class: center, middle
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
 
+# Deux problématiques de performances
+* CPU bound : puissance de calcul
+* I/O bound : gestion des entrées sorties
+---
+class: middle
+.header[![iroco-logo](images/iroco.svg)]
+
 # Objectif
 
 * y a-t-il des différences entre Rust et Python en asynchrone ?
   * ajouter un outil à notre boite à outils
   * faire un choix de langage
-
----
-class: middle
-.header[![iroco-logo](images/iroco.svg)]
-
-# Deux problématiques de performances
-* CPU bound : puissance de calcul
-* I/O bound : gestion des entrées sorties
+  
 ---
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
@@ -238,14 +238,10 @@ class: middle
 
 # Et ensuite ?
 
-* faire un/des article(s) expliquant notre démarche/avoir des retours
 * continuer sur les tests appli natives
-* autres critères de comparaison:
-    * compatibilité avec "vieux" navigateur/mobile
-    * taille livrables
-    * nombre lignes de code
-* liens avec consommation/énergie ?
-* "industrialiser" l'utilisation
+* compatibilité avec "vieux" navigateur/mobile
+* liens avec consommation/énergie pour le client ?
+* "industrialiser" l'utilisation des outils
 ---
 class: middle
 .header[![iroco-logo](images/iroco.svg)]
